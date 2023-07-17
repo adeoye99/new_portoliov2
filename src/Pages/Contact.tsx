@@ -30,19 +30,19 @@ function Contact({}: Props): ReactElement {
                      <Input
                        type = "text"
                        value = {name}
-                       placeholder="Name"
+                       placeholder="NAME"
                        onChange = {(e)=>{setName(e.target.value)}}
                      
                        />
                       <Input
                        type='text'
                        value = {email}
-                       placeholder="Email"
+                       placeholder="EMAIL"
                        onChange = {(e)=>{setEmail(e.target.value)}}
                        />
                      <Textfeild
                         value = {comment}
-                        placeholder="Comment"
+                        placeholder="MESSAGE"
                         onChange = {(e)=>{setComment(e.target.value)}}
                      
                      />
@@ -50,7 +50,7 @@ function Contact({}: Props): ReactElement {
 
 
                    <div className='w-[100%] relative'>
-                      <button className='text-white  border-b-2 border-[#4EE1A0] mt-2 absolute right-0  md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'>Contact Me</button>
+                      <button className='text-white  border-b-2 border-[#4EE1A0] mt-2 absolute right-0  md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'>SEND MESSAGE</button>
                     </div>
                     </div>
                  </div> 

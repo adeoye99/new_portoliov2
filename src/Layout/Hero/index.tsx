@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react'
 
+import { Link } from "react-scroll";
+
 import profilePic from "../../starter-code/assets/images/image-profile-desktop.webp"
 import github from "../../starter-code/assets/images/icon-github.svg"
 import linkedin from "../../starter-code/assets/images/icon-linkedin.svg"
@@ -25,19 +27,33 @@ function Hero({}: Props): ReactElement {
                     Based in the Lagos, I’m a front-end developer <br/> passionate about building accessible web apps <br/> that users love.
                  </p>
                  <div className='md:text-left mt-[10%]'>
+                  <Link to= "contacts" spy={true} smooth={true} offset={-10} duration={500}>
                     <button 
                     className='text-white border-b-2 border-[#4EE1A0] md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'
-                   
+                  
                     >Contact Me</button>
+                  
+                  </Link>
+                    
+                    
                  </div>
                </div>
                <div className = "z-30 mx-auto h-[300px] md:mt-[-100px]  md:h-[800px] md:w-full bg-center bg-cover relative " style = {{ backgroundImage : `url(${profilePic})`}}>
                  
                    <div className='grid grid-cols-4 md:w-[30%] gap-4 right-2 absolute md:top-[5%]'>
-                     <img  src= {github}  alt = "githublogo"/>
-                     <img  src= {linkedin}  alt = "linkedinlogo"/>
-                     <img  src= {frontendMentor}  alt = "linkedinlogo"/>
-                     <img  src= {twitter}  alt = "twitterlogo"/>
+                     <a href="https://www.github.com/adeoye99">
+                       <img  src= {github}  alt = "githublogo"/>
+                     </a>
+                     <a href="https://www.linkedin.com/in/kolawole-adeoye-0761981b2" >
+                        <img  src= {linkedin}  alt = "linkedinlogo"/>
+                     </a>
+                      <a>
+                        <img  src= {frontendMentor}  alt = "linkedinlogo"/>
+                      </a>
+                     <a href="https://twitter.com/SulaimonAdeoye5" >
+                       <img  src= {twitter}  alt = "twitterlogo"/>
+                     </a>
+                     
                   </div> 
                </div>
             </div>

@@ -14,7 +14,7 @@ function Textfeild({placeholder , onChange , value }: Props): ReactElement {
               placeholder = {placeholder}
               onChange = {onChange}
               value = {value}
-              className=' bg-[#242424] pl-6 pb-3 border-b-2 border-white w-[100%] h-[100px]  hover:border-[#4EE1A0] focus:text-[#4EE1A0] overfloe-hidden outline-none'
+              className=' bg-[#242424] pl-6 pb-3 border-b-2 border-white w-[100%] h-[100px]  hover:border-[#4EE1A0] focus:border-[#4EE1A0]  outline-none'
             />
             
         </div>

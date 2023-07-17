@@ -18,12 +18,7 @@ function Header({}: Props): ReactElement {
                    <p className='text-xl text-white'>ADEOYE SULAIMON KOLAWOLE</p>
                </div>
                <div className='relative z-40'>
-               <div className='grid grid-cols-4 md:w-[20%] gap-4 right-2 absolute md:top-[4%]'>
-                     <img  src= {github}  alt = "githublogo"/>
-                     <img  src= {linkedin}  alt = "linkedinlogo"/>
-                     <img  src= {frontendMentor}  alt = "linkedinlogo"/>
-                     <img  src= {twitter}  alt = "twitterlogo"/>
-                  </div>
+               
                </div>
               </div>
         </div>
