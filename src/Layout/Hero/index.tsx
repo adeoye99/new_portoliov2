@@ -16,7 +16,7 @@ function Hero({}: Props): ReactElement {
     return (
         <div className='h-screen bg-black  relative'>
              <img className = "absolute top-[23%]" src = {Oval} alt = "oval"/>
-            <div className='md:w-[80%] md:h-[100%] border-b-2 border-white md:grid md:grid-cols-2 mx-auto '>
+            <div className='md:w-[80%] md:h-[100%] border-b-2 border-white md:grid md:grid-cols-2 md:gap-4 mx-auto '>
               <div className='md:text-left my-[100px]'>
                  <h1 className='md:text-[60px] text-white'>Nice to meet you! </h1>
                  <div className='mt-4 flex-col md:flex md:flex-row'>
@@ -39,7 +39,7 @@ function Hero({}: Props): ReactElement {
                  </div>
                </div>
                <div 
-               className = "z-30 mx-auto h-[300px] md:mt-[-100px] md:h-[800px] md:w-full bg-center bg-cover relative" 
+               className = "z-30 mx-auto h-[300px] md:mt-[-100px] md:h-[90%] md:w-full bg-center bg-cover relative" 
                style = {{ backgroundImage : `url(${profilePic})` }}
                >
                  

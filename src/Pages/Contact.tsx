@@ -15,14 +15,15 @@ import Swal from 'sweetalert2'
 interface Props {
     
 }
-const REACT_APP_API_ID = "";
-const SERVICE_ID = "service_k2czhp9" 
-const TEMPLATE_ID = "template_rgjtao7" 
-const PUBLIC_KEY = "user_ucKqH4Th84EjAe6ju4zvX"
-emailjs.init('5250XiJe9P2YVSufz');
+ 
+const SERVICE_ID = process.env.REACT_APP_SERVICE_ID
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID 
+// const PUBLIC_KEY = "user_ucKqH4Th84EjAe6ju4zvX"
+const USER_ID = process.env.REACT_APP_USER_ID
+emailjs.init(`${USER_ID}`);
 
 function Contact({}: Props): ReactElement {
-   const form : any = useRef(null);
+   const form = useRef(null);
     const [name , setName] = useState("")
     const [message , setMessage] = useState("")
     const [email , setEmail] = useState("")
@@ -36,9 +37,10 @@ const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
     };
     setIsSending(true)
    event?.preventDefault()      
-  emailjs.send( SERVICE_ID ,TEMPLATE_ID , templateParams)
+  emailjs.send( `${SERVICE_ID}` ,`${TEMPLATE_ID}` , templateParams)
    .then((result) => {
       console.log(result.text);
+      
       Swal.fire({
          title: 'Message Sent',
          text: result?.text,
@@ -46,8 +48,18 @@ const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
          confirmButtonText: 'Ok'
        })
       setIsSending(false)
+      setEmail("")
+      setMessage("")
+      setName("")
   }, (error) => {
+   Swal.fire({
+      title: 'Error',
+      text: error.text,
+      icon: 'error',
+      confirmButtonText: 'try again'
+    })
       console.log(error.text);
+      setIsSending(false)
   })
 
 }
