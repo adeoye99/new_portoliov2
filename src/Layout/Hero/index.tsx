@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 
 import { Link } from "react-scroll";
 
-import profilePic from "../../starter-code/assets/images/image-profile-desktop.webp"
+import profilePic from "../../starter-code/assets/images/sulaimon.jpg"
 import github from "../../starter-code/assets/images/icon-github.svg"
 import linkedin from "../../starter-code/assets/images/icon-linkedin.svg"
 import twitter from   "../../starter-code/assets/images/icon-twitter.svg"
@@ -38,7 +38,10 @@ function Hero({}: Props): ReactElement {
                     
                  </div>
                </div>
-               <div className = "z-30 mx-auto h-[300px] md:mt-[-100px]  md:h-[800px] md:w-full bg-center bg-cover relative " style = {{ backgroundImage : `url(${profilePic})`}}>
+               <div 
+               className = "z-30 mx-auto h-[300px] md:mt-[-100px] md:h-[800px] md:w-full bg-center bg-cover relative" 
+               style = {{ backgroundImage : `url(${profilePic})` }}
+               >
                  
                    <div className='grid grid-cols-4 md:w-[30%] gap-4 right-2 absolute md:top-[5%]'>
                      <a href="https://www.github.com/adeoye99">

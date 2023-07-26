@@ -8,15 +8,13 @@ interface ProjectsProps {
     
 }
 
-const Projectscase = ({img , title, toolsUsed}: ProjectsProps) => {
+const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
     return (
         <div className='w-[100%] text-left  relative hover:opacity-50'>
             {/* <div className='h-[350px] w-[100%] pt-8 bg-center bg-cover ' style = {{ backgroundImage : `url(${img})`}}  >
                  <button className= 'absolute hidden border-b-2 border-[#4EE1A0] mx-auto md:pb-4 hover:opacity-50 hover:block' >View Project</button>
                  <button className= "bg-blue-500 text-white py-2 px-4 flex mx-auto" >Button</button>
             </div> */}
-
-          
             <a className="relative block  bg-gray-900 w-full h-[350px] group"
                     href="##">
                     <img 

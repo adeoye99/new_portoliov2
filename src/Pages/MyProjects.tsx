@@ -25,6 +25,7 @@ const MyProjects = (props: Props) => {
                     return(
 
                         <Projectscase
+                        key = {item.id}
                         img = {item.projectImage}
                         title = {item.title}
                         toolsUsed = {item.toolsUsed}

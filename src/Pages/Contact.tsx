@@ -1,4 +1,4 @@
-import React, { ReactElement , useState } from 'react'
+import React, { ReactElement , ChangeEvent, useState ,useRef } from 'react'
 import Input from '../Components/Input'
 import Oval from "../starter-code/assets/images/Group 26 Copy.png"
 import github from "../starter-code/assets/images/icon-github.svg"
@@ -6,15 +6,62 @@ import linkedin from "../starter-code/assets/images/icon-linkedin.svg"
 import twitter from   "../starter-code/assets/images/icon-twitter.svg"
 import frontendMentor from "../starter-code/assets/images/icon-frontend-mentor.svg"
 import Textfeild from '../Components/Textfeild'
+import emailjs from '@emailjs/browser';
+import{ init } from '@emailjs/browser';
+import { PulseLoader } from 'react-spinners'
+import Swal from 'sweetalert2'
+
 
 interface Props {
     
 }
+const REACT_APP_API_ID = "";
+const SERVICE_ID = "service_k2czhp9" 
+const TEMPLATE_ID = "template_rgjtao7" 
+const PUBLIC_KEY = "user_ucKqH4Th84EjAe6ju4zvX"
+emailjs.init('5250XiJe9P2YVSufz');
 
 function Contact({}: Props): ReactElement {
+   const form : any = useRef(null);
     const [name , setName] = useState("")
+    const [message , setMessage] = useState("")
     const [email , setEmail] = useState("")
-    const [comment , setComment] =useState("")
+   const [isSending , setIsSending] = useState(false)
+   //  const [name , setName] = useState("")
+const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
+   const templateParams = {
+      to_name: name,
+      from_name: email,
+      message: message,
+    };
+    setIsSending(true)
+   event?.preventDefault()      
+  emailjs.send( SERVICE_ID ,TEMPLATE_ID , templateParams)
+   .then((result) => {
+      console.log(result.text);
+      Swal.fire({
+         title: 'Message Sent',
+         text: result?.text,
+         icon: 'success',
+         confirmButtonText: 'Ok'
+       })
+      setIsSending(false)
+  }, (error) => {
+      console.log(error.text);
+  })
+
+}
+
+const handleNameChange = (e : ChangeEvent<HTMLInputElement>) => {
+   setName(e.target.value)
+}
+const handleEmailChange = (e : ChangeEvent<HTMLInputElement>) => {
+   setEmail(e.target.value)
+}
+const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
+   setMessage(e.target.value)
+}
+
     return (
         <div id = "contacts" className='bg-[#242424] h-[700px] text-white md:py-[10px] relative'>
               <img className = "absolute top-[43%]" src = {Oval} alt = "oval"/>
@@ -26,33 +73,50 @@ function Contact({}: Props): ReactElement {
                     </div>
                  </div>
                  <div >
+                    <form 
+                     ref={form}
+                     onSubmit = {SendEmail}
+                    >
                     <div className='flex flex-col gap-y-[30px]'>
                      <Input
                        type = "text"
-                       value = {name}
+                       name = "name"
                        placeholder="NAME"
-                       onChange = {(e)=>{setName(e.target.value)}}
+                       value={name}
+                       onChange = {handleNameChange}
                      
                        />
                       <Input
-                       type='text'
-                       value = {email}
+                       type='email'
+                       name = "email"
                        placeholder="EMAIL"
-                       onChange = {(e)=>{setEmail(e.target.value)}}
+                       value = {email}
+                       onChange = {handleEmailChange}
                        />
                      <Textfeild
-                        value = {comment}
-                        placeholder="MESSAGE"
-                        onChange = {(e)=>{setComment(e.target.value)}}
-                     
+                        name ="message"
+                        placeholder = "MESSAGE"
+                        value={message}
+                        onChange = {handleMessageChange}
                      />
+                        <div className='w-[100%] relative'>
+                          <button 
+                          className='text-white  border-b-2 border-[#4EE1A0] mt-2 absolute right-0  md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'
+                           type = "submit"
+                           >
+                              {
+                                 isSending ? 
 
+                                 <PulseLoader color = "#36d7b7"/>  
+                                 :
+                                 "SEND MESSAGE"
 
-
-                   <div className='w-[100%] relative'>
-                      <button className='text-white  border-b-2 border-[#4EE1A0] mt-2 absolute right-0  md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'>SEND MESSAGE</button>
-                    </div>
-                    </div>
+                              }
+               
+                           </button>
+                        </div>
+                     </div>
+                    </form>
                  </div> 
             </div>
             <div className='absolute inset-x-0 bottom-0  flex justify-center'>

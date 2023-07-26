@@ -3,6 +3,7 @@ import Skill from "../Components/Skill";
 import { SkillsIhave } from "../Constants/skills";
 import Oval from "../starter-code/assets/images/Group 26.png"
 
+
 interface Props {}
 
 function Skills({}: Props): ReactElement {
@@ -12,6 +13,7 @@ function Skills({}: Props): ReactElement {
         {SkillsIhave.map((item) => {
           return (
             <Skill
+              key = {item.id}
               name={item.name}
               numberofExperience={item.numberOfExperience}
             />

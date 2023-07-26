@@ -1,19 +1,23 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement , ChangeEvent } from 'react'
 
 interface Props {
-    value: string;
-    onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+   
     placeholder?: string;
+    name : string;
+    value : string;
+    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+
     
 }
 
-function Textfeild({placeholder , onChange , value }: Props): ReactElement {
+function Textfeild({placeholder , name , value , onChange }: Props): ReactElement {
     return (
         <div className='w-[100%] '>
             <textarea
+              value = {value}
+              name = {name}
               placeholder = {placeholder}
               onChange = {onChange}
-              value = {value}
               className=' bg-[#242424] pl-6 pb-3 border-b-2 border-white w-[100%] h-[100px]  hover:border-[#4EE1A0] focus:border-[#4EE1A0]  outline-none'
             />
             
