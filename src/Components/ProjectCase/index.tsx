@@ -31,9 +31,13 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                                 group-hover:translate-y-0"
                                 
                             >
-                                <div className="p-2 flex flex-col gap-y-4">
-                                    <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
-                                    <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                                <div className="p-2 mx-auto justify-center w-[40%] grid grid-cols-1 hidden md:block">
+                                    <div>
+                                      <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
+                                    </div>
+                                    <div>
+                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                                    </div>
                                 </div>
                             </div>
                             {/* End of hidden content */}
@@ -42,6 +46,10 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                 </a>
                 <p className='text-white text-2xl'>{title}</p>
                <p className='text-[#D9D9D9] text-sm'>{toolsUsed}</p>
+               <div className="p-2 flex relative gap-y-4 block md:hidden">
+                        <button className= 'absolute left-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
+                        <button className= 'absolute right-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                </div>
         </div>
     )
 }

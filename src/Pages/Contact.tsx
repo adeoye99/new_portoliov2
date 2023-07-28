@@ -1,4 +1,4 @@
-import React, { ReactElement , ChangeEvent, useState ,useRef } from 'react'
+import React, { ReactElement , ChangeEvent, useState ,useRef , useEffect } from 'react'
 import Input from '../Components/Input'
 import Oval from "../starter-code/assets/images/Group 26 Copy.png"
 import github from "../starter-code/assets/images/icon-github.svg"
@@ -28,15 +28,28 @@ function Contact({}: Props): ReactElement {
     const [message , setMessage] = useState("")
     const [email , setEmail] = useState("")
    const [isSending , setIsSending] = useState(false)
+   const [isError ,  setIsError] = useState("")
+   
    //  const [name , setName] = useState("")
+   // useEffect(()=>{
+   //    const year = new Date().getFullYear()
+   //    console.log(year)
+   //    // setCurrentYear(year)   
+   // },[])
+   const year = new Date().getFullYear()
+   console.log(year)
 const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
+   if(name === "" || message === "" || email === ""){
+      setIsError("Complete the form before submission")
+      return
+   }
    const templateParams = {
       to_name: name,
       from_name: email,
       message: message,
     };
     setIsSending(true)
-   event?.preventDefault()      
+   event.preventDefault()      
   emailjs.send( `${SERVICE_ID}` ,`${TEMPLATE_ID}` , templateParams)
    .then((result) => {
       console.log(result.text);
@@ -75,9 +88,9 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
 }
 
     return (
-        <div id = "contacts" className='bg-[#242424] h-[700px] text-white md:py-[10px] relative'>
+        <div id = "contacts" className='bg-[#242424] h-[700px] text-white  md:py-[10px] relative'>
               <img className = "absolute top-[43%]" src = {Oval} alt = "oval"/>
-            <div className='grid grid-cols-1 w-[80%] mx-auto md:grid-cols-2 pt-[100px]'>
+            <div className='grid grid-cols-1 w-[80%] mx-auto md:grid-cols-2 pt-[50px] md:pt-[100px]'>
                 <div>
                     <div className=' text-left'>
                        <h1 className='text-5xl font-4xl font-bold'>Contact</h1>
@@ -90,12 +103,14 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
                      onSubmit = {SendEmail}
                     >
                     <div className='flex flex-col gap-y-[30px]'>
+                     <p className='text-red'>{isError}</p>
                      <Input
                        type = "text"
                        name = "name"
                        placeholder="NAME"
                        value={name}
                        onChange = {handleNameChange}
+                     //   error = {isError}
                      
                        />
                       <Input
@@ -104,6 +119,7 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
                        placeholder="EMAIL"
                        value = {email}
                        onChange = {handleEmailChange}
+                     //   error = {isError}
                        />
                      <Textfeild
                         name ="message"
@@ -135,13 +151,22 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
                <div className='grid grid-cols-2 w-[80%] pt-[10%] md:pt-[30px] md:pb-[60px] border-t-2 border-white'>
                 <div className='text-left'> 
                      <p>ADEOYE SULAIMON KOLAWOLE</p>
+                     <p>copyright © {year}</p>
                 </div>
                 <div className='relative'>
                 <div className='grid grid-cols-4 md:w-[20%] gap-4 absolute right-3'>
-                     <img  src= {github}  alt = "githublogo"/>
-                     <img  src= {linkedin}  alt = "linkedinlogo"/>
-                     <img  src= {frontendMentor}  alt = "linkedinlogo"/>
-                     <img  src= {twitter}  alt = "twitterlogo"/>
+                      <a href="https://www.github.com/adeoye99">
+                       <img  src= {github}  alt = "githublogo"/>
+                     </a>
+                     <a href="https://www.linkedin.com/in/kolawole-adeoye-0761981b2" >
+                        <img  src= {linkedin}  alt = "linkedinlogo"/>
+                     </a>
+                      <a>
+                        <img  src= {frontendMentor}  alt = "linkedinlogo" />
+                      </a>
+                     <a href = "https://twitter.com/SulaimonAdeoye5" >
+                       <img  src  = {twitter}  alt = "twitterlogo"/>
+                     </a>
                   </div>
                      
                 </div>
