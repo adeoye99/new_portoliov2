@@ -29,6 +29,7 @@ function Contact({}: Props): ReactElement {
     const [email , setEmail] = useState("")
    const [isSending , setIsSending] = useState(false)
    const [isError ,  setIsError] = useState("")
+   const [error , setError] = useState(false)
    
    //  const [name , setName] = useState("")
    // useEffect(()=>{
@@ -41,6 +42,7 @@ function Contact({}: Props): ReactElement {
 const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
    if(name === "" || message === "" || email === ""){
       setIsError("Complete the form before submission")
+      setError(true)
       return
    }
    const templateParams = {
@@ -64,6 +66,8 @@ const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
       setEmail("")
       setMessage("")
       setName("")
+      setError(false)
+      setIsError("")
   }, (error) => {
    Swal.fire({
       title: 'Error',
@@ -73,17 +77,21 @@ const SendEmail = ( event: React.FormEvent<HTMLFormElement>  )  =>{
     })
       console.log(error.text);
       setIsSending(false)
+      setError(!error)
   })
 
 }
 
 const handleNameChange = (e : ChangeEvent<HTMLInputElement>) => {
+   
    setName(e.target.value)
 }
 const handleEmailChange = (e : ChangeEvent<HTMLInputElement>) => {
+  
    setEmail(e.target.value)
 }
 const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
+   
    setMessage(e.target.value)
 }
 
@@ -103,14 +111,14 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
                      onSubmit = {SendEmail}
                     >
                     <div className='flex flex-col gap-y-[30px]'>
-                     <p className='text-red'>{isError}</p>
+                     <p className='text-red-600'>{isError}</p>
                      <Input
                        type = "text"
                        name = "name"
                        placeholder="NAME"
                        value={name}
                        onChange = {handleNameChange}
-                     //   error = {isError}
+                       error = {error}
                      
                        />
                       <Input
@@ -119,7 +127,7 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
                        placeholder="EMAIL"
                        value = {email}
                        onChange = {handleEmailChange}
-                     //   error = {isError}
+                       error = {error}
                        />
                      <Textfeild
                         name ="message"

@@ -15,7 +15,7 @@ function Input({placeholder, type , name , value , onChange , error}: Props): Re
             <input
               name = {name}
               type = {type}
-              className= {` bg-[#242424] border-b-2 w-[100%] pl-6 pb-3 outline-none  hover:border-[#4EE1A0] focus:border-[#4EE1A0] ${error ? "border-red" :" border-white"}`}
+              className= {` bg-[#242424] border-b-2 w-[100%] pl-6 pb-3 outline-none  hover:border-[#4EE1A0] focus:border-[#4EE1A0] ${error ? "border-red-700" :" border-white"}`}
               placeholder={placeholder}
               value = {value}
               onChange={onChange}

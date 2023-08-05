@@ -8,6 +8,7 @@ import linkedin from "../../starter-code/assets/images/icon-linkedin.svg"
 import twitter from   "../../starter-code/assets/images/icon-twitter.svg"
 import frontendMentor from "../../starter-code/assets/images/icon-frontend-mentor.svg"
 import Oval from "../../starter-code/assets/images/Group 26 Copy.png"
+import circle from "../../starter-code/assets/images/circle.svg"
 interface Props {
     
 }
@@ -21,7 +22,7 @@ function Hero({}: Props): ReactElement {
                  className = "z-30 mx-auto h-[400px] w-[60%] md:mt-[-100px] md:h-[90%] md:w-full block md:hidden bg-center bg-cover relative" 
                  style = {{ backgroundImage : `url(${profilePic})` }}
                >
-                   <div className='grid grid-cols-4 md:w-[30%] gap-4 right-[30%] top-[5%] md:right-2 absolute md:top-[5%]'>
+                   <div className='grid grid-cols-4 md:w-[30%] gap-4 right-[10%] top-[5%] md:right-2 absolute md:top-[5%]'>
                      <a href="https://www.github.com/adeoye99">
                        <img  src= {github}  alt = "githublogo"/>
                      </a>
@@ -55,10 +56,10 @@ function Hero({}: Props): ReactElement {
                   </Link>
                   
                   <a className = "ml-4" href = "../../starter-code/assets/images/resume2.pdf" download = "/starter-code/assets/images/resume2.pdf">
-                    <button 
-                     className='text-white border-b-2 border-[#4EE1A0] md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'
-                    >
-                      Resume
+                     <button 
+                      className='text-white border-b-2 border-[#4EE1A0] md:pb-4 hover:opacity-50 hover:text-[#4EE1A0]'
+                     >
+                       Resume
                     </button>
                     </a> 
                  </div>
@@ -69,6 +70,8 @@ function Hero({}: Props): ReactElement {
                >
                  
                </div>
+                <img className = "absolute top-[50%] left-[46.6%] z-10 hidden md:block" src= {circle}/>
+                <img className = "absolute top-[30%] right-[-15%] z-10 block md:hidden" src= {circle}/>
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                  <button className= 'absolute hidden border-b-2 border-[#4EE1A0] mx-auto md:pb-4 hover:opacity-50 hover:block' >View Project</button>
                  <button className= "bg-blue-500 text-white py-2 px-4 flex mx-auto" >Button</button>
             </div> */}
-            <a className="relative block  bg-gray-900 w-full h-[350px] group"
+            <a className="relative block  align-center item-center text-center  bg-gray-900 w-full h-[350px] group"
                     href="##">
                     <img 
                       className="absolute inset-0 object-cover w-full h-full group-hover:opacity-50"
@@ -31,12 +31,12 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                                 group-hover:translate-y-0"
                                 
                             >
-                                <div className="p-2 mx-auto justify-center w-[40%] grid grid-cols-1 hidden md:block">
+                                <div className="p-2  mx-auto align-center item-center justify-center w-[40%] grid grid-cols-1 hidden md:block">
                                     <div>
                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
                                     </div>
                                     <div>
-                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto  md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
                                     </div>
                                 </div>
                             </div>
