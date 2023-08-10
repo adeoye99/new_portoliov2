@@ -29,6 +29,8 @@ const MyProjects = (props: Props) => {
                         img = {item.projectImage}
                         title = {item.title}
                         toolsUsed = {item.toolsUsed}
+                        LinktoCode = {item.LinktoCode} 
+                         LinktoViewProject = {item.LinktoProject}
                         />
                     )
                 })

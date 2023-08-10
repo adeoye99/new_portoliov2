@@ -8,8 +8,8 @@ interface Props {}
 
 function Skills({}: Props): ReactElement {
   return (
-    <div className="bg-black text-white md:h-100 relative">
-      <div className="grid grid-cols-2 gap-y-[10%] md:grid-cols-3 md:gap-y-[60%] md:gap-x-[20%] w-[80%] py-[10%] mx-auto">
+    <div className="bg-black  text-white relative py-[1%]">
+      <div className="grid grid-cols-2  md:grid-cols-3 md:gap-y-[20%] md:gap-x-[20%] w-[80%] py-[10%] mx-auto">
         {SkillsIhave.map((item) => {
           return (
             <Skill
@@ -20,7 +20,7 @@ function Skills({}: Props): ReactElement {
           );
         })}
       </div>
-      <img className = "absolute right-0 top-[20%] " src = {Oval} alt = "oval"/>
+      <img className = "absolute right-0 top-[20%] " src = {Oval} alt = "oval" />
     </div>
   );
 }

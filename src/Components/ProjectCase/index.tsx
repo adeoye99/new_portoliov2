@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 interface ProjectsProps {
     img : string,
     title : string,
     toolsUsed: string,
-    
-    
+    LinktoCode: string,
+    LinktoViewProject : string
 }
 
-const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
+const Projectscase = ({ img , title, toolsUsed , LinktoCode , LinktoViewProject }: ProjectsProps) => {
     return (
         <div className='w-[100%] text-left  relative hover:opacity-50'>
             {/* <div className='h-[350px] w-[100%] pt-8 bg-center bg-cover ' style = {{ backgroundImage : `url(${img})`}}  >
@@ -33,10 +34,19 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                             >
                                 <div className="p-2  mx-auto align-center item-center justify-center w-[40%] grid grid-cols-1 hidden md:block">
                                     <div>
-                                      <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
+                                     <a href={LinktoViewProject} target="_blank" rel="noopener noreferrer" >
+                                        <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >
+                                          View Project
+                                         </button>
+                                      </a>
                                     </div>
+                                    
                                     <div>
-                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto  md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                                    <a href={LinktoCode} target="_blank" rel="noopener noreferrer" >
+                                       <button className= 'border-b-2 border-[#4EE1A0] text-white mx-auto  md:pb-4 hover:text-[#4EE1A0]' >
+                                        View Code
+                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -47,8 +57,16 @@ const Projectscase = ({ img , title, toolsUsed}: ProjectsProps) => {
                 <p className='text-white text-2xl'>{title}</p>
                <p className='text-[#D9D9D9] text-sm'>{toolsUsed}</p>
                <div className="p-2 flex relative gap-y-4 block md:hidden">
-                        <button className= 'absolute left-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Project</button>
-                        <button className= 'absolute right-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >View Code</button>
+                  <a href={LinktoViewProject} target="_blank" rel="noopener noreferrer" >
+                        <button className= 'absolute left-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >
+                            View Project
+                        </button>
+                    </a>
+                    <a href={LinktoCode} target="_blank" rel="noopener noreferrer" >
+                        <button className= 'absolute right-0 border-b-2 border-[#4EE1A0] text-white mx-auto md:pb-4 hover:text-[#4EE1A0]' >
+                            View Code
+                        </button>
+                    </a>
                 </div>
         </div>
     )

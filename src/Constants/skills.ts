@@ -34,4 +34,15 @@ export const SkillsIhave = [
         name: 'TYPESCRIPT',
         numberOfExperience: "2 years"
     },
+  
+     {
+      id : 8,
+      name: 'NEXT JS',
+      numberOfExperience: "2 years"
+   },
+   {
+      id : 9,
+      name: 'TAILWIND CSS',
+      numberOfExperience: "2 years"
+  },
   ]

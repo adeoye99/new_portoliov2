@@ -98,14 +98,14 @@ const handleMessageChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
     return (
         <div id = "contacts" className='bg-[#242424] h-[700px] text-white  md:py-[10px] relative'>
               <img className = "absolute top-[43%]" src = {Oval} alt = "oval"/>
-            <div className='grid grid-cols-1 w-[80%] mx-auto md:grid-cols-2 pt-[50px] md:pt-[100px]'>
-                <div>
+            <div className='grid grid-cols-1 w-[80%] mx-auto md:grid-cols-2 py-[30px] md:pt-[100px]'>
+                <div data-aos="fade-right" >
                     <div className=' text-left'>
                        <h1 className='text-5xl font-4xl font-bold'>Contact</h1>
                        <p className='mt-[50px] h-[100px]'>I would love to hear about your project and how I <br/> could help. Please fill in the form, and I’ll get back<br/> to you as soon as possible.</p> 
                     </div>
                  </div>
-                 <div >
+                 <div data-aos="fade-left" >
                     <form 
                      ref={form}
                      onSubmit = {SendEmail}
